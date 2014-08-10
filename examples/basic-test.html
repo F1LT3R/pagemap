@@ -20,6 +20,12 @@
     pagemap.add('group2', this);
   });
 
+  pagemap.style({
+    'background': {fill: '#210'},
+    '0': {stroke:'#0AF', fill: false, lineWidth:3},
+    'group2': {stroke:'#AF0', fill:'rgba(255,255,255,.4)', lineWidth:2}
+  });
+
   pagemap.render();
   pagemap.display();
 
