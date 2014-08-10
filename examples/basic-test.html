@@ -12,27 +12,41 @@
 
 <script>
   
+  // Create the pagemap object
   pagemap.create();
   
+  // Add H1 Elements to group1
   $('body h1').each(function(){
     pagemap.add('group1', this);
   });
 
+  // Add P Elements to group2
   $('body p').each(function(){
     pagemap.add('group2', this);
   });
 
+  // Add H2 Elements to group3
   $('body h2').each(function(){
     pagemap.add('group3', this);
   });
 
+  // Override some of the styles
   pagemap.style({
     'background': {fill: '#210'},
     '0': {stroke:'#0AF', fill: false, lineWidth:3},
     'group2': {stroke:'#AF0', fill:'rgba(255,255,255,.4)', lineWidth:2}
   });
 
+  // Render the pagemap off the DOM
   pagemap.render();
+  
+  // Display the pagemap in the DOM
   pagemap.display();
+
+  // Return the PNG Data for the pagemap CANVAS
+  console.log( pagemap.toPNG() );
+
+  // Return the Stringified JSON data of the colors and rects
+  console.log( pagemap.toJSONString() );
 
 </script>

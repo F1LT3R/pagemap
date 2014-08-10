@@ -46,7 +46,7 @@
     return {
 
       // Creates a new pagemap space
-      create: function (url, width, height) {
+      create: function (url) {
 
         // Store the dimensions of the Document and the Window
         var docWidth = document.body.clientWidth,
@@ -61,8 +61,8 @@
         canvas.setAttribute('id', 'pagemapCanvas');
       
         // Set the dimensions of the CANVAS to be win/doc size (depending on which is biggest) 
-        canvas.width = width || winWidth > docWidth ? winWidth : docWidth;
-        canvas.height = height || winHeight > docHeight ? winHeight : docHeight;
+        canvas.width = winWidth > docWidth ? winWidth : docWidth;
+        canvas.height = winHeight > docHeight ? winHeight : docHeight;
         
         // Get the 2D Context of the CANVAS after the dimensions have been set
         context = canvas.getContext('2d');
@@ -260,14 +260,25 @@
       },
 
       
-      // return: PNG Data
-      // toPNG: function () {
-      // },
+      // Exports PNG Data from CANVAS
+      toPNG: function () {
+
+        // Return the CANVAS pixel converted to Base64 PNG data
+        return canvas.toDataURL('image/png');
+
+      },
 
       
-      // return: JSON data
-      // toJSON: function () {
-      // }
+      // Return the rect and color data as JSON object
+      toJSONString: function () {
+        
+        // Stringify the data and return
+        return JSON.stringify({
+          styles: styles,
+          groups: groups
+        });
+
+      }
 
     };
 
