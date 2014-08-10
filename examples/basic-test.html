@@ -12,8 +12,12 @@
   
   pagemap.create();
   
-  $('body *').each(function(){
+  $('body h1').each(function(){
     pagemap.add('group1', this);
+  });
+
+  $('body p').each(function(){
+    pagemap.add('group2', this);
   });
 
   pagemap.render();

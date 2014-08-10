@@ -121,11 +121,14 @@
         // Fill the background canvas
         context.fillStyle = settings.color.background;
         context.fillRect(0,0,canvas.width, canvas.height);
-        context.translate(0.5,0.5);
-        context.lineWidth = 1;
+        // context.translate(0.5,0.5);
+        // context.lineWidth = 1;
 
 
         function draw (rect) {
+
+          context.beginPath();
+
           if (fillStyle) {
             context.fillRect(rect.x, rect.y, rect.w, rect.h);
           }
@@ -134,6 +137,8 @@
             context.rect(rect.x, rect.y, rect.w, rect.h);
             context.stroke();
           }
+
+          context.closePath();
 
         }
 
